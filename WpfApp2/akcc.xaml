@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfApp2.akcc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="akcc" Height="356" Width="411">
+    <Grid Margin="0,0,0,0" Width="410" Height="411">
+        <Menu Height="25" VerticalAlignment="Top">
+            <Button x:Name="dob" Content="Добавить" Click="dob_Click" ></Button>
+            <Button x:Name="fid1" Content="Удалить" Click="del_Click" ></Button>
+        </Menu>
+        <DataGrid AutoGenerateColumns="False" x:Name="fidakc" Margin="0,32,0,0" Height="308" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Условия_акции}" Width="130" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="red" Click="red_Click" Content="Редактировать" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp2.red_likv"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="red_likv" Height="275" Width="632">
+    <Grid Background="#FF35DD70">
+        <Button x:Name="soh" Content="Сохранить" HorizontalAlignment="Left" Margin="125,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button x:Name="vih" Content="Выход" HorizontalAlignment="Left" Margin="459,210,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ComboBox x:Name="naim" SelectedItem="{Binding Товар}" DisplayMemberPath="Наименование" HorizontalAlignment="Left" Height="23" Margin="168,75,0,0" VerticalAlignment="Top" Width="434">
+        </ComboBox>
+        <TextBox Text="{Binding Цена}" HorizontalAlignment="Left" Height="23" Margin="168,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="434"/>
+        <Label Content="Наименование" HorizontalAlignment="Left" Margin="72,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.819,-0.293"/>
+        <Label Content="Цена" HorizontalAlignment="Left" Margin="125,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.819,-0.293"/>
+        <ComboBox x:Name="fot" SelectedItem="{Binding Товар}" DisplayMemberPath="Фото" HorizontalAlignment="Left" Height="23" Margin="168,132,0,0" VerticalAlignment="Top" Width="434"/>
+        <Label Content="Фото" HorizontalAlignment="Left" Margin="125,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.819,-0.293"/>
+    </Grid>
+</Window>

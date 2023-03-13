@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cef7e1b2ee544c488921250eda7867d6" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="komandorModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="komandorModel.Акции" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="komandorModel.Акционный_товар" Width="1.5" PointX="8.25" PointY="6" />
+        <EntityTypeShape EntityType="komandorModel.Должность" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="komandorModel.Ликвидация" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="komandorModel.Отделы" Width="1.5" PointX="12.25" PointY="1.75" />
+        <EntityTypeShape EntityType="komandorModel.Планограмма" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="komandorModel.Пол" Width="1.5" PointX="7.75" PointY="1.875" />
+        <EntityTypeShape EntityType="komandorModel.Поставщики" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="komandorModel.Скидки" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="komandorModel.Склад" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="komandorModel.Сотрудники" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="komandorModel.Списания" Width="1.5" PointX="5.25" PointY="9.625" />
+        <EntityTypeShape EntityType="komandorModel.Тип_товара" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="komandorModel.Товар" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="komandorModel.Фото_товара" Width="1.5" PointX="0.75" PointY="11.875" />
+        <AssociationConnector Association="komandorModel.FK_Акционный_товар_Акции" />
+        <AssociationConnector Association="komandorModel.FK_Акционный_товар_Товар" />
+        <AssociationConnector Association="komandorModel.FK_Акционный_товар_Товар1" />
+        <AssociationConnector Association="komandorModel.FK_Сотрудники_Должность" />
+        <AssociationConnector Association="komandorModel.FK_Ликвидация_Товар" />
+        <AssociationConnector Association="komandorModel.FK_Ликвидация_Товар1" />
+        <AssociationConnector Association="komandorModel.FK_Отделы_Сотрудники" />
+        <AssociationConnector Association="komandorModel.FK_Сотрудники_Пол" />
+        <AssociationConnector Association="komandorModel.FK_Товар_Поставщики" />
+        <AssociationConnector Association="komandorModel.FK_Скидки_Товар" />
+        <AssociationConnector Association="komandorModel.FK_Скидки_Товар1" />
+        <AssociationConnector Association="komandorModel.FK_Скидки_Товар2" />
+        <AssociationConnector Association="komandorModel.FK_Товар_Склад" />
+        <AssociationConnector Association="komandorModel.FK_Списания_Товар" />
+        <AssociationConnector Association="komandorModel.FK_Списания_Товар1" />
+        <AssociationConnector Association="komandorModel.FK_Товар_Тип_товара" />
+        <AssociationConnector Association="komandorModel.FK_Товар_Фото_товара" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

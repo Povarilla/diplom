@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище komandorModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Акции">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Условия акции" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Акционный товар">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="int" />
+          <Property Name="Цена" Type="money" />
+          <Property Name="Условия акции" Type="int" />
+          <Property Name="Фото" Type="int" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Оклад" Type="money" />
+        </EntityType>
+        <EntityType Name="Ликвидация">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="int" />
+          <Property Name="Цена" Type="money" />
+          <Property Name="Фото" Type="int" />
+        </EntityType>
+        <EntityType Name="Отделы">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Сотрудники" Type="int" />
+        </EntityType>
+        <EntityType Name="Планограмма">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фото" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Пол">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Поставщики">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Скидки">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="int" />
+          <Property Name="Цена без карты" Type="int" />
+          <Property Name="Цена по карте" Type="money" />
+          <Property Name="Фото" Type="int" />
+        </EntityType>
+        <EntityType Name="Склад">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Участок" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Сотрудники">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
+          <Property Name="Паспорт" Type="int" />
+          <Property Name="Дата рождения" Type="date" />
+          <Property Name="Пол" Type="int" />
+          <Property Name="Стаж" Type="nvarchar" MaxLength="50" />
+          <Property Name="Должность" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Списания">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="int" />
+          <Property Name="Цена" Type="int" />
+          <Property Name="Причина" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Тип товара">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Товар">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="150" />
+          <Property Name="Тип товара" Type="int" />
+          <Property Name="Номенклатурный номер" Type="int" />
+          <Property Name="Закупочная цена" Type="money" />
+          <Property Name="Наценка компании" Type="money" />
+          <Property Name="Цена товара" Type="money" />
+          <Property Name="Поставщик" Type="int" />
+          <Property Name="Склад" Type="int" />
+          <Property Name="Фото" Type="int" />
+        </EntityType>
+        <EntityType Name="Фото товара">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фото" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Акционный товар_Акции">
+          <End Role="Акции" Type="Self.Акции" Multiplicity="0..1" />
+          <End Role="Акционный товар" Type="Self.Акционный товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Акции">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный товар">
+              <PropertyRef Name="Условия акции" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Акционный товар_Товар">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Акционный товар" Type="Self.Акционный товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный товар">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Акционный товар_Товар1">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Акционный товар" Type="Self.Акционный товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный товар">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ликвидация_Товар">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Ликвидация" Type="Self.Ликвидация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ликвидация">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ликвидация_Товар1">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Ликвидация" Type="Self.Ликвидация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ликвидация">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отделы_Сотрудники">
+          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="0..1" />
+          <End Role="Отделы" Type="Self.Отделы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отделы">
+              <PropertyRef Name="Сотрудники" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Скидки" Type="Self.Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар1">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Скидки" Type="Self.Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Цена без карты" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар2">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Скидки" Type="Self.Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сотрудники_Должность">
+          <End Role="Должность" Type="Self.Должность" Multiplicity="1" />
+          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должность">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сотрудники">
+              <PropertyRef Name="Должность" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сотрудники_Пол">
+          <End Role="Пол" Type="Self.Пол" Multiplicity="0..1" />
+          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пол">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сотрудники">
+              <PropertyRef Name="Пол" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Списания_Товар">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Списания" Type="Self.Списания" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Списания">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Списания_Товар1">
+          <End Role="Товар" Type="Self.Товар" Multiplicity="0..1" />
+          <End Role="Списания" Type="Self.Списания" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Списания">
+              <PropertyRef Name="Цена" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Поставщики">
+          <End Role="Поставщики" Type="Self.Поставщики" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Поставщики">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Поставщик" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Склад">
+          <End Role="Склад" Type="Self.Склад" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Склад">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Склад" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Тип товара">
+          <End Role="Тип товара" Type="Self.Тип товара" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Тип товара">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Тип товара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Фото товара">
+          <End Role="Фото товара" Type="Self.Фото товара" Multiplicity="0..1" />
+          <End Role="Товар" Type="Self.Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Фото товара">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище komandorModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Акции" EntityType="Self.Акции" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Акционный товар" EntityType="Self.Акционный товар" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ликвидация" EntityType="Self.Ликвидация" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Отделы" EntityType="Self.Отделы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Планограмма" EntityType="Self.Планограмма" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Пол" EntityType="Self.Пол" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Поставщики" EntityType="Self.Поставщики" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Скидки" EntityType="Self.Скидки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Склад" EntityType="Self.Склад" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Списания" EntityType="Self.Списания" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Тип товара" EntityType="Self.Тип товара" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Товар" EntityType="Self.Товар" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Фото товара" EntityType="Self.Фото товара" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Акционный товар_Акции" Association="Self.FK_Акционный товар_Акции">
+            <End Role="Акции" EntitySet="Акции" />
+            <End Role="Акционный товар" EntitySet="Акционный товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Акционный товар_Товар" Association="Self.FK_Акционный товар_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Акционный товар" EntitySet="Акционный товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Акционный товар_Товар1" Association="Self.FK_Акционный товар_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Акционный товар" EntitySet="Акционный товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ликвидация_Товар" Association="Self.FK_Ликвидация_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Ликвидация" EntitySet="Ликвидация" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ликвидация_Товар1" Association="Self.FK_Ликвидация_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Ликвидация" EntitySet="Ликвидация" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отделы_Сотрудники" Association="Self.FK_Отделы_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Отделы" EntitySet="Отделы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар" Association="Self.FK_Скидки_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар1" Association="Self.FK_Скидки_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар2" Association="Self.FK_Скидки_Товар2">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сотрудники_Должность" Association="Self.FK_Сотрудники_Должность">
+            <End Role="Должность" EntitySet="Должность" />
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сотрудники_Пол" Association="Self.FK_Сотрудники_Пол">
+            <End Role="Пол" EntitySet="Пол" />
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Списания_Товар" Association="Self.FK_Списания_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Списания" EntitySet="Списания" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Списания_Товар1" Association="Self.FK_Списания_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Списания" EntitySet="Списания" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Поставщики" Association="Self.FK_Товар_Поставщики">
+            <End Role="Поставщики" EntitySet="Поставщики" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Склад" Association="Self.FK_Товар_Склад">
+            <End Role="Склад" EntitySet="Склад" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Тип товара" Association="Self.FK_Товар_Тип товара">
+            <End Role="Тип товара" EntitySet="Тип товара" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Фото товара" Association="Self.FK_Товар_Фото товара">
+            <End Role="Фото товара" EntitySet="Фото товара" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="komandorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="komandorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="komandorModel.sysdiagrams" />
+          <EntitySet Name="Акции" EntityType="komandorModel.Акции" />
+          <EntitySet Name="Акционный_товар" EntityType="komandorModel.Акционный_товар" />
+          <EntitySet Name="Должность" EntityType="komandorModel.Должность" />
+          <EntitySet Name="Ликвидация" EntityType="komandorModel.Ликвидация" />
+          <EntitySet Name="Отделы" EntityType="komandorModel.Отделы" />
+          <EntitySet Name="Планограмма" EntityType="komandorModel.Планограмма" />
+          <EntitySet Name="Пол" EntityType="komandorModel.Пол" />
+          <EntitySet Name="Поставщики" EntityType="komandorModel.Поставщики" />
+          <EntitySet Name="Скидки" EntityType="komandorModel.Скидки" />
+          <EntitySet Name="Склад" EntityType="komandorModel.Склад" />
+          <EntitySet Name="Сотрудники" EntityType="komandorModel.Сотрудники" />
+          <EntitySet Name="Списания" EntityType="komandorModel.Списания" />
+          <EntitySet Name="Тип_товара" EntityType="komandorModel.Тип_товара" />
+          <EntitySet Name="Товар" EntityType="komandorModel.Товар" />
+          <EntitySet Name="Фото_товара" EntityType="komandorModel.Фото_товара" />
+          <AssociationSet Name="FK_Акционный_товар_Акции" Association="komandorModel.FK_Акционный_товар_Акции">
+            <End Role="Акции" EntitySet="Акции" />
+            <End Role="Акционный_товар" EntitySet="Акционный_товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Акционный_товар_Товар" Association="komandorModel.FK_Акционный_товар_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Акционный_товар" EntitySet="Акционный_товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Акционный_товар_Товар1" Association="komandorModel.FK_Акционный_товар_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Акционный_товар" EntitySet="Акционный_товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сотрудники_Должность" Association="komandorModel.FK_Сотрудники_Должность">
+            <End Role="Должность" EntitySet="Должность" />
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ликвидация_Товар" Association="komandorModel.FK_Ликвидация_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Ликвидация" EntitySet="Ликвидация" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ликвидация_Товар1" Association="komandorModel.FK_Ликвидация_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Ликвидация" EntitySet="Ликвидация" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отделы_Сотрудники" Association="komandorModel.FK_Отделы_Сотрудники">
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+            <End Role="Отделы" EntitySet="Отделы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сотрудники_Пол" Association="komandorModel.FK_Сотрудники_Пол">
+            <End Role="Пол" EntitySet="Пол" />
+            <End Role="Сотрудники" EntitySet="Сотрудники" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Поставщики" Association="komandorModel.FK_Товар_Поставщики">
+            <End Role="Поставщики" EntitySet="Поставщики" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар" Association="komandorModel.FK_Скидки_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар1" Association="komandorModel.FK_Скидки_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Скидки_Товар2" Association="komandorModel.FK_Скидки_Товар2">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Скидки" EntitySet="Скидки" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Склад" Association="komandorModel.FK_Товар_Склад">
+            <End Role="Склад" EntitySet="Склад" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Списания_Товар" Association="komandorModel.FK_Списания_Товар">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Списания" EntitySet="Списания" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Списания_Товар1" Association="komandorModel.FK_Списания_Товар1">
+            <End Role="Товар" EntitySet="Товар" />
+            <End Role="Списания" EntitySet="Списания" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Тип_товара" Association="komandorModel.FK_Товар_Тип_товара">
+            <End Role="Тип_товара" EntitySet="Тип_товара" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Товар_Фото_товара" Association="komandorModel.FK_Товар_Фото_товара">
+            <End Role="Фото_товара" EntitySet="Фото_товара" />
+            <End Role="Товар" EntitySet="Товар" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Акции">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Условия_акции" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Акционный_товар" Relationship="komandorModel.FK_Акционный_товар_Акции" FromRole="Акции" ToRole="Акционный_товар" />
+        </EntityType>
+        <EntityType Name="Акционный_товар">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="Int32" />
+          <Property Name="Цена" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Условия_акции" Type="Int32" />
+          <Property Name="Фото" Type="Int32" />
+          <NavigationProperty Name="Акции" Relationship="komandorModel.FK_Акционный_товар_Акции" FromRole="Акционный_товар" ToRole="Акции" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Акционный_товар_Товар" FromRole="Акционный_товар" ToRole="Товар" />
+          <NavigationProperty Name="Товар1" Relationship="komandorModel.FK_Акционный_товар_Товар1" FromRole="Акционный_товар" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Оклад" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Сотрудники" Relationship="komandorModel.FK_Сотрудники_Должность" FromRole="Должность" ToRole="Сотрудники" />
+        </EntityType>
+        <EntityType Name="Ликвидация">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="Int32" />
+          <Property Name="Цена" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Фото" Type="Int32" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Ликвидация_Товар" FromRole="Ликвидация" ToRole="Товар" />
+          <NavigationProperty Name="Товар1" Relationship="komandorModel.FK_Ликвидация_Товар1" FromRole="Ликвидация" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Отделы">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Сотрудники" Type="Int32" />
+          <NavigationProperty Name="Сотрудники1" Relationship="komandorModel.FK_Отделы_Сотрудники" FromRole="Отделы" ToRole="Сотрудники" />
+        </EntityType>
+        <EntityType Name="Планограмма">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фото" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Пол">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Сотрудники" Relationship="komandorModel.FK_Сотрудники_Пол" FromRole="Пол" ToRole="Сотрудники" />
+        </EntityType>
+        <EntityType Name="Поставщики">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Товар_Поставщики" FromRole="Поставщики" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Скидки">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="Int32" />
+          <Property Name="Цена_без_карты" Type="Int32" />
+          <Property Name="Цена_по_карте" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Фото" Type="Int32" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Скидки_Товар" FromRole="Скидки" ToRole="Товар" />
+          <NavigationProperty Name="Товар1" Relationship="komandorModel.FK_Скидки_Товар1" FromRole="Скидки" ToRole="Товар" />
+          <NavigationProperty Name="Товар2" Relationship="komandorModel.FK_Скидки_Товар2" FromRole="Скидки" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Склад">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Участок" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Товар_Склад" FromRole="Склад" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Сотрудники">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Паспорт" Type="Int32" />
+          <Property Name="Дата_рождения" Type="DateTime" Precision="0" />
+          <Property Name="Пол" Type="Int32" />
+          <Property Name="Стаж" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Должность" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Должность1" Relationship="komandorModel.FK_Сотрудники_Должность" FromRole="Сотрудники" ToRole="Должность" />
+          <NavigationProperty Name="Отделы" Relationship="komandorModel.FK_Отделы_Сотрудники" FromRole="Сотрудники" ToRole="Отделы" />
+          <NavigationProperty Name="Пол1" Relationship="komandorModel.FK_Сотрудники_Пол" FromRole="Сотрудники" ToRole="Пол" />
+        </EntityType>
+        <EntityType Name="Списания">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="Int32" />
+          <Property Name="Цена" Type="Int32" />
+          <Property Name="Причина" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Списания_Товар" FromRole="Списания" ToRole="Товар" />
+          <NavigationProperty Name="Товар1" Relationship="komandorModel.FK_Списания_Товар1" FromRole="Списания" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Тип_товара">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Товар_Тип_товара" FromRole="Тип_товара" ToRole="Товар" />
+        </EntityType>
+        <EntityType Name="Товар">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Тип_товара" Type="Int32" />
+          <Property Name="Номенклатурный_номер" Type="Int32" />
+          <Property Name="Закупочная_цена" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Наценка_компании" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Цена_товара" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Поставщик" Type="Int32" />
+          <Property Name="Склад" Type="Int32" />
+          <Property Name="Фото" Type="Int32" />
+          <NavigationProperty Name="Акционный_товар" Relationship="komandorModel.FK_Акционный_товар_Товар" FromRole="Товар" ToRole="Акционный_товар" />
+          <NavigationProperty Name="Акционный_товар1" Relationship="komandorModel.FK_Акционный_товар_Товар1" FromRole="Товар" ToRole="Акционный_товар" />
+          <NavigationProperty Name="Ликвидация" Relationship="komandorModel.FK_Ликвидация_Товар" FromRole="Товар" ToRole="Ликвидация" />
+          <NavigationProperty Name="Ликвидация1" Relationship="komandorModel.FK_Ликвидация_Товар1" FromRole="Товар" ToRole="Ликвидация" />
+          <NavigationProperty Name="Поставщики" Relationship="komandorModel.FK_Товар_Поставщики" FromRole="Товар" ToRole="Поставщики" />
+          <NavigationProperty Name="Скидки" Relationship="komandorModel.FK_Скидки_Товар" FromRole="Товар" ToRole="Скидки" />
+          <NavigationProperty Name="Скидки1" Relationship="komandorModel.FK_Скидки_Товар1" FromRole="Товар" ToRole="Скидки" />
+          <NavigationProperty Name="Скидки2" Relationship="komandorModel.FK_Скидки_Товар2" FromRole="Товар" ToRole="Скидки" />
+          <NavigationProperty Name="Склад1" Relationship="komandorModel.FK_Товар_Склад" FromRole="Товар" ToRole="Склад" />
+          <NavigationProperty Name="Списания" Relationship="komandorModel.FK_Списания_Товар" FromRole="Товар" ToRole="Списания" />
+          <NavigationProperty Name="Списания1" Relationship="komandorModel.FK_Списания_Товар1" FromRole="Товар" ToRole="Списания" />
+          <NavigationProperty Name="Тип_товара1" Relationship="komandorModel.FK_Товар_Тип_товара" FromRole="Товар" ToRole="Тип_товара" />
+          <NavigationProperty Name="Фото_товара" Relationship="komandorModel.FK_Товар_Фото_товара" FromRole="Товар" ToRole="Фото_товара" />
+        </EntityType>
+        <EntityType Name="Фото_товара">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фото" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Товар" Relationship="komandorModel.FK_Товар_Фото_товара" FromRole="Фото_товара" ToRole="Товар" />
+        </EntityType>
+        <Association Name="FK_Акционный_товар_Акции">
+          <End Type="komandorModel.Акции" Role="Акции" Multiplicity="0..1" />
+          <End Type="komandorModel.Акционный_товар" Role="Акционный_товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Акции">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный_товар">
+              <PropertyRef Name="Условия_акции" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Акционный_товар_Товар">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Акционный_товар" Role="Акционный_товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный_товар">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Акционный_товар_Товар1">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Акционный_товар" Role="Акционный_товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Акционный_товар">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сотрудники_Должность">
+          <End Type="komandorModel.Должность" Role="Должность" Multiplicity="1" />
+          <End Type="komandorModel.Сотрудники" Role="Сотрудники" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должность">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сотрудники">
+              <PropertyRef Name="Должность" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ликвидация_Товар">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Ликвидация" Role="Ликвидация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ликвидация">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ликвидация_Товар1">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Ликвидация" Role="Ликвидация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ликвидация">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отделы_Сотрудники">
+          <End Type="komandorModel.Сотрудники" Role="Сотрудники" Multiplicity="0..1" />
+          <End Type="komandorModel.Отделы" Role="Отделы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудники">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отделы">
+              <PropertyRef Name="Сотрудники" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сотрудники_Пол">
+          <End Type="komandorModel.Пол" Role="Пол" Multiplicity="0..1" />
+          <End Type="komandorModel.Сотрудники" Role="Сотрудники" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пол">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сотрудники">
+              <PropertyRef Name="Пол" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Поставщики">
+          <End Type="komandorModel.Поставщики" Role="Поставщики" Multiplicity="0..1" />
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Поставщики">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Поставщик" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Скидки" Role="Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар1">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Скидки" Role="Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Цена_без_карты" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Скидки_Товар2">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Скидки" Role="Скидки" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Скидки">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Склад">
+          <End Type="komandorModel.Склад" Role="Склад" Multiplicity="0..1" />
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Склад">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Склад" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Списания_Товар">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Списания" Role="Списания" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Списания">
+              <PropertyRef Name="Наименование" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Списания_Товар1">
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="0..1" />
+          <End Type="komandorModel.Списания" Role="Списания" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товар">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Списания">
+              <PropertyRef Name="Цена" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Тип_товара">
+          <End Type="komandorModel.Тип_товара" Role="Тип_товара" Multiplicity="0..1" />
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Тип_товара">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Тип_товара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Товар_Фото_товара">
+          <End Type="komandorModel.Фото_товара" Role="Фото_товара" Multiplicity="0..1" />
+          <End Type="komandorModel.Товар" Role="Товар" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Фото_товара">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Товар">
+              <PropertyRef Name="Фото" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище komandorModelContainer" CdmEntityContainer="komandorEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="komandorModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Акции">
+            <EntityTypeMapping TypeName="komandorModel.Акции">
+              <MappingFragment StoreEntitySet="Акции">
+                <ScalarProperty Name="Условия_акции" ColumnName="Условия акции" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Акционный_товар">
+            <EntityTypeMapping TypeName="komandorModel.Акционный_товар">
+              <MappingFragment StoreEntitySet="Акционный товар">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="Условия_акции" ColumnName="Условия акции" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Должность">
+            <EntityTypeMapping TypeName="komandorModel.Должность">
+              <MappingFragment StoreEntitySet="Должность">
+                <ScalarProperty Name="Оклад" ColumnName="Оклад" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ликвидация">
+            <EntityTypeMapping TypeName="komandorModel.Ликвидация">
+              <MappingFragment StoreEntitySet="Ликвидация">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Отделы">
+            <EntityTypeMapping TypeName="komandorModel.Отделы">
+              <MappingFragment StoreEntitySet="Отделы">
+                <ScalarProperty Name="Сотрудники" ColumnName="Сотрудники" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Планограмма">
+            <EntityTypeMapping TypeName="komandorModel.Планограмма">
+              <MappingFragment StoreEntitySet="Планограмма">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пол">
+            <EntityTypeMapping TypeName="komandorModel.Пол">
+              <MappingFragment StoreEntitySet="Пол">
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Поставщики">
+            <EntityTypeMapping TypeName="komandorModel.Поставщики">
+              <MappingFragment StoreEntitySet="Поставщики">
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Скидки">
+            <EntityTypeMapping TypeName="komandorModel.Скидки">
+              <MappingFragment StoreEntitySet="Скидки">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="Цена_по_карте" ColumnName="Цена по карте" />
+                <ScalarProperty Name="Цена_без_карты" ColumnName="Цена без карты" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Склад">
+            <EntityTypeMapping TypeName="komandorModel.Склад">
+              <MappingFragment StoreEntitySet="Склад">
+                <ScalarProperty Name="Участок" ColumnName="Участок" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сотрудники">
+            <EntityTypeMapping TypeName="komandorModel.Сотрудники">
+              <MappingFragment StoreEntitySet="Сотрудники">
+                <ScalarProperty Name="Должность" ColumnName="Должность" />
+                <ScalarProperty Name="Стаж" ColumnName="Стаж" />
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+                <ScalarProperty Name="Паспорт" ColumnName="Паспорт" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Списания">
+            <EntityTypeMapping TypeName="komandorModel.Списания">
+              <MappingFragment StoreEntitySet="Списания">
+                <ScalarProperty Name="Причина" ColumnName="Причина" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Тип_товара">
+            <EntityTypeMapping TypeName="komandorModel.Тип_товара">
+              <MappingFragment StoreEntitySet="Тип товара">
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Товар">
+            <EntityTypeMapping TypeName="komandorModel.Товар">
+              <MappingFragment StoreEntitySet="Товар">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="Склад" ColumnName="Склад" />
+                <ScalarProperty Name="Поставщик" ColumnName="Поставщик" />
+                <ScalarProperty Name="Цена_товара" ColumnName="Цена товара" />
+                <ScalarProperty Name="Наценка_компании" ColumnName="Наценка компании" />
+                <ScalarProperty Name="Закупочная_цена" ColumnName="Закупочная цена" />
+                <ScalarProperty Name="Номенклатурный_номер" ColumnName="Номенклатурный номер" />
+                <ScalarProperty Name="Тип_товара" ColumnName="Тип товара" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Фото_товара">
+            <EntityTypeMapping TypeName="komandorModel.Фото_товара">
+              <MappingFragment StoreEntitySet="Фото товара">
+                <ScalarProperty Name="Фото" ColumnName="Фото" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
